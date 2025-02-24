@@ -19,6 +19,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: testing
+      run: |
+        echo "$TEST"
+      env:
+        TEST: ${{ vars.TEST }}
+        
     - name: Import GPG key
       run: |
         echo "$GPG_PRIVATE_KEY" | gpg --import
