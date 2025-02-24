@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Import GPG key
       run: |
-        echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+        echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
