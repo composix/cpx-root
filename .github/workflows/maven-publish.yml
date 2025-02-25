@@ -33,7 +33,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s .github/settings.xml
+      run: mvn -B -ntp deploy -s .github/settings.xml
       env:
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
