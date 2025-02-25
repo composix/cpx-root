@@ -15,17 +15,11 @@ jobs:
       contents: read
       packages: write
 
-    environment: TEST
+    environment: production
     
     steps:
     - uses: actions/checkout@v4
 
-    - name: testing
-      run: |
-        echo "Hallo: $TEST"
-      env:
-        TEST: ${{ vars.TEST }}
-        
     - name: Import GPG key
       run: |
         echo "$GPG_PRIVATE_KEY" | gpg --import
@@ -37,13 +31,9 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
-
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+      run: mvn deploy -s .github/settings.xml
       env:
-        GITHUB_TOKEN: ${{ github.token }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
