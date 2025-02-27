@@ -5,7 +5,7 @@
 
   <groupId>io.github.composix</groupId>
   <artifactId>cpx-root</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 
   <description>Root project for ComPosiX projects</description>
   <url>https://github.com/composix/cpx-root</url>
@@ -43,11 +43,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>io.github.composix</groupId>
-        <artifactId>cpx-varargs</artifactId>
-        <version>1.0.0</version>
-      </dependency>
       <dependency>
         <groupId>org.wiremock</groupId>
         <artifactId>wiremock-standalone</artifactId>
